@@ -10,4 +10,5 @@ puts "----------"
 
 @store1.update(name: "Hallelujah")
 
-pp Store.first
+pp @store1
+pp @store2
