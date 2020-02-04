@@ -6,7 +6,7 @@ puts "----------"
 
 # Your code goes here ...
 @store1 = Store.first
-@store2 = Store.where(id: 2)
+@store2 = Store.where(id: 2)[0]
 
 @store1.update(name: "Hallelujah")
 
