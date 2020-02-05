@@ -16,6 +16,12 @@ invalid = Store.new(name: "shs", annual_revenue: -33, mens_apparel: true, womens
 p invalid, invalid.valid?, invalid.errors.messages
 invalid = Store.new(name: "shs", annual_revenue: 33.333, mens_apparel: true, womens_apparel: true)
 p invalid, invalid.valid?, invalid.errors.messages
+invalid = Store.new(name: "shs", annual_revenue: 243, mens_apparel: false, womens_apparel: false)
+p invalid, invalid.valid?, invalid.errors.messages
+invalid = Store.new(name: "shs", annual_revenue: 243, mens_apparel: true, womens_apparel: false)
+p invalid, invalid.valid?, invalid.errors.messages
+invalid = Store.new(name: "shs", annual_revenue: 243, mens_apparel: false, womens_apparel: true)
+p invalid, invalid.valid?, invalid.errors.messages
 
 invalid = @store1.employees.new(first_name: "", last_name: "asdf", hourly_rate: 234)
 p invalid, invalid.valid?, invalid.errors.messages
@@ -29,3 +35,10 @@ invalid = @store1.employees.new(first_name: "585858", last_name: "jfjfj", hourly
 p invalid, invalid.valid?, invalid.errors.messages
 invalid = @store1.employees.new(first_name: "585858", last_name: "jfjfj", hourly_rate: 201)
 p invalid, invalid.valid?, invalid.errors.messages
+
+print "\nEnter your store name:"
+store_name = gets.chomp
+
+store = Store.create(name: store_name)
+pp store
+puts store.errors.messages
